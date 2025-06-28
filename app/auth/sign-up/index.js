@@ -4,10 +4,10 @@ import { useNavigation, useRouter } from 'expo-router'
 import { Colors } from './../../../constants/Colors'
 import { TouchableOpacity } from 'react-native'
 import Ionicons from '@expo/vector-icons/Ionicons'
-import { createUserWithEmailAndPassword } from 'firebase/auth/web-extension'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../../../configs/FreebaseConfig'
 import { useState } from 'react'
-import { length } from './../../../node_modules/@protobufjs/utf8/index.d';
+// import { length } from './../../../node_modules/@protobufjs/utf8/index.d';
 
 export default function SignUp() {
   const navigation = useNavigation();

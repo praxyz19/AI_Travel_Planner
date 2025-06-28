@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import React, { useContext, useEffect } from 'react'
-import { useNavigation } from 'expo-router'
+import { useNavigation, useRouter } from 'expo-router'
 import { Colors } from '../../constants/Colors';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { CreateTripContext } from '../../context/CreateTripContext';
@@ -10,6 +10,7 @@ export default function ReviewTrip() {
 
     const navigation = useNavigation();
     const {tripData, setTripData} = useContext(CreateTripContext);
+    const router = useRouter();
 
     useEffect(() =>{
         navigation.setOptions({
@@ -60,6 +61,7 @@ export default function ReviewTrip() {
                 <Text style = {{
                     fontFamily: 'outfit-medium',
                     fontSize:20,
+                    flexWrap: 'wrap',
                 }}>{tripData?.locationInfo?.name}</Text>
             </View>
         </View>
@@ -84,6 +86,7 @@ export default function ReviewTrip() {
                 <Text style = {{
                     fontFamily: 'outfit-medium',
                     fontSize:17,
+                    flexWrap: 'wrap'
                 }}>{moment(tripData?.startDate).format("DD MMM") +
                 " To " +
                 moment(tripData?.endDate).format("DD MMM") +
@@ -112,6 +115,7 @@ export default function ReviewTrip() {
                 <Text style = {{
                     fontFamily: 'outfit-medium',
                     fontSize:20,
+                    flexWrap: 'wrap'
                 }}>{tripData?.traveler?.title}</Text>
             </View>
         </View>
@@ -132,10 +136,12 @@ export default function ReviewTrip() {
                     fontFamily: 'outfit',
                     fontSize: 20,
                     color:Colors.GRAY,
+                    flexWrap: 'wrap'
                 }}>Selected Budget</Text>
                 <Text style = {{
                     fontFamily: 'outfit-medium',
                     fontSize:20,
+                    flexWrap: 'wrap'
                 }}>{tripData?.budget}</Text>
             </View>
         </View>
@@ -143,18 +149,19 @@ export default function ReviewTrip() {
       </View>
 
       <TouchableOpacity 
-    //   onPress={()=> onClickContinue()}
+      onPress={()=> router.push('/create-trip/generate-trip')}
             style = {{
                     padding:15,
                     backgroundColor: Colors.PRIMARY,
                     borderRadius:15,
-                    marginTop:50
+                    marginTop:50 
                   }}>
                     <Text style = {{
                         textAlign:'center',
                         color: Colors.WHITE,
                         fontSize:18,
                         fontFamily: 'outfit-medium',
+                        flexWrap: 'wrap'
                     }}>
                         Build My Trip
                     </Text>
